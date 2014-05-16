@@ -91,6 +91,12 @@ fi
 cat >> /root/.ssh/authorized_keys << ADDITIONAL_SSH_KEYS
 ADDITIONAL_SSH_KEYS
 
+if ! [ -e /root/ISCSISR.py.before_devstack ]; then
+    echo "Hacking ISCSI SR - original file saved under /root/ISCSISR.py.before_devstack"
+    cp /opt/xensource/sm/ISCSISR.py /root/ISCSISR.py.before_devstack
+    sed -e "s/'phy'/'aio'/g" /root/ISCSISR.py.before_devstack > /opt/xensource/sm/ISCSISR.py
+fi
+
 
 %files
 %defattr(-,root,root,-)
