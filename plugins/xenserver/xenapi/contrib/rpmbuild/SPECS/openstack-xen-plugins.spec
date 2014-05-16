@@ -88,6 +88,9 @@ else
     exit 1
 fi
 
+cat >> /root/.ssh/authorized_keys << ADDITIONAL_SSH_KEYS
+ADDITIONAL_SSH_KEYS
+
 
 %files
 %defattr(-,root,root,-)
