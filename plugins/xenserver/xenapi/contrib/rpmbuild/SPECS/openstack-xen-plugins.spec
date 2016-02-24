@@ -1,5 +1,5 @@
 Name:           openstack-xen-plugins
-Version:        2012.1
+Version:        %{version}
 Release:        1
 Summary:        Files for XenAPI support.
 License:        ASL 2.0
