@@ -2,19 +2,13 @@
 
 set -eux
 
-thisdir=$(dirname $(readlink -f "$0"))
-NEUTRON_ROOT=$(cd $thisdir/../../../../../../../../ && pwd)
-PYTHONPATH=$NEUTRON_ROOT
-
-cd $NEUTRON_ROOT
-VERSION=$(sh -c "(cat $NEUTRON_ROOT/neutron/version.py; \
-                  echo 'print version_info.release_string()') | \
-                  python")
-cd $thisdir
-
+# THIS_DIR is directory of neutron repo that build-rpm.sh located
+# neutron/neutron/plugins/ml2/drivers/openvswitch/agent/xenapi/contrib
+THIS_DIR=$(dirname $(readlink -f "$0"))
+VERSION=${1:-"2012.1"}
 PACKAGE=openstack-neutron-xen-plugins
-PACKAGE_SPEC=openstack-quantum-xen-plugins.spec
-RPMBUILD_DIR=$PWD/rpmbuild
+RPMBUILD_DIR=$THIS_DIR/rpmbuild
+
 if [ ! -d $RPMBUILD_DIR ]; then
     echo $RPMBUILD_DIR is missing
     exit 1
@@ -32,4 +26,4 @@ tar czf $RPMBUILD_DIR/SOURCES/$PACKAGE.tar.gz -C /tmp $PACKAGE
 
 rpmbuild -ba --nodeps --define "_topdir $RPMBUILD_DIR"  \
     --define "version $VERSION" \
-    $RPMBUILD_DIR/SPECS/$PACKAGE_SPEC
+    $RPMBUILD_DIR/SPECS/$PACKAGE.spec
