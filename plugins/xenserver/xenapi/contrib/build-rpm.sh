@@ -2,6 +2,7 @@
 PACKAGE=openstack-xen-plugins
 THIS_DIR=$(cd $(dirname $0) && pwd)
 RPMBUILD_DIR="$THIS_DIR/rpmbuild"
+VERSION=${1:-"2012.1"}
 
 if [ ! -d $RPMBUILD_DIR ]; then
     echo $RPMBUILD_DIR is missing
@@ -19,4 +20,5 @@ cp -r "$THIS_DIR/../etc/xapi.d" /tmp/$PACKAGE
 tar czf $RPMBUILD_DIR/SOURCES/$PACKAGE.tar.gz -C /tmp $PACKAGE
 
 rpmbuild -ba --nodeps --define "_topdir $RPMBUILD_DIR" \
+    --define "version $VERSION" \
     $RPMBUILD_DIR/SPECS/$PACKAGE.spec
