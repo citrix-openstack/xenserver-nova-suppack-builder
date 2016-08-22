@@ -111,9 +111,17 @@ fi
 /etc/xapi.d/plugins/kernel
 /etc/xapi.d/plugins/migration
 /etc/xapi.d/plugins/partition_utils.py
+/etc/xapi.d/plugins/partition_utils.pyc
+/etc/xapi.d/plugins/partition_utils.pyo
 /etc/xapi.d/plugins/pluginlib_nova.py
+/etc/xapi.d/plugins/pluginlib_nova.pyc
+/etc/xapi.d/plugins/pluginlib_nova.pyo
 /etc/xapi.d/plugins/workarounds
 /etc/xapi.d/plugins/xenhost
 /etc/xapi.d/plugins/xenstore.py
+/etc/xapi.d/plugins/xenstore.pyc
+/etc/xapi.d/plugins/xenstore.pyo
 /etc/xapi.d/plugins/utils.py
+/etc/xapi.d/plugins/utils.pyc
+/etc/xapi.d/plugins/utils.pyo
 /etc/xapi.d/plugins/nova_plugin_version
