@@ -19,7 +19,7 @@ This package contains files that are required for XenAPI support for OpenStack.
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/etc
-cp -r xapi.d $RPM_BUILD_ROOT/etc
+rsync -avz --exclude '*.pyc' --exclude '*.pyo' xapi.d $RPM_BUILD_ROOT/etc
 chmod a+x $RPM_BUILD_ROOT/etc/xapi.d/plugins/*
 
 %clean
@@ -111,14 +111,8 @@ fi
 /etc/xapi.d/plugins/kernel
 /etc/xapi.d/plugins/migration
 /etc/xapi.d/plugins/pluginlib_nova.py
-/etc/xapi.d/plugins/pluginlib_nova.pyc
-/etc/xapi.d/plugins/pluginlib_nova.pyo
 /etc/xapi.d/plugins/workarounds
 /etc/xapi.d/plugins/xenhost
 /etc/xapi.d/plugins/xenstore.py
-/etc/xapi.d/plugins/xenstore.pyc
-/etc/xapi.d/plugins/xenstore.pyo
 /etc/xapi.d/plugins/utils.py
-/etc/xapi.d/plugins/utils.pyc
-/etc/xapi.d/plugins/utils.pyo
 /etc/xapi.d/plugins/nova_plugin_version
