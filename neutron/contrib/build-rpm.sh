@@ -26,4 +26,6 @@ tar czf $RPMBUILD_DIR/SOURCES/$PACKAGE.tar.gz -C /tmp $PACKAGE
 
 rpmbuild -ba --nodeps --define "_topdir $RPMBUILD_DIR"  \
     --define "version $VERSION" \
+    --define "_binary_filedigest_algorithm  1" \
+    --define "_binary_payload 1" \
     $RPMBUILD_DIR/SPECS/$PACKAGE.spec
